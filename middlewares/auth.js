@@ -9,13 +9,13 @@ const isAuthorized = async (req, res, next) => {
         return response.validationError(res, "Unauthorized");
     }
     try {
-        decode = jwt.verify(token, process.env.JWTSECTET);;
+        decode = jwt.verify(token, process.env.JWTSECTET);
         console.log(decode)
         const user = await userDB.findOne({ _id: decode.id }).select('-password');
         if (!user) {
             return res.status(404).send({error:"User not found with the given token"})
         }
-        res.user = user;
+        req.user = user;
          next();
 
     } catch (error) {
