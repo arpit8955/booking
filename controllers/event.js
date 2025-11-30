@@ -2,8 +2,7 @@ const response = require('../middlewares/response');
 const userDB = require('../models/user')
 const eventDB = require('../models/event')
 const createDraftEvent = async (req, res) => {
-    const { name, date, totalSeats } = req.body
-    console.log(req);
+    const { name, date, totalSeats } = req.body;
     const event = await eventDB({
         name,
         date,

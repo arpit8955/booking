@@ -1,6 +1,7 @@
 const response = require('../middlewares/response');
 const userDB = require('../models/user')
 const bcrypt = require('bcryptjs');
+const jwtTokenDB = require('../models/jwtToken');
 const generateToken = require('../utils/jwt')
 const test = async (req, res) => {
    response.successResponse(res,"","working fine")
@@ -36,7 +37,9 @@ const loginUser = async (req, res) => {
         return response.errorResponse(res,"incorrect password")
     }
     const generatedToken = generateToken(findUser._id);
+    console.log(generateToken,"tokeen")
     const token = { generatedToken };
+    console.log(token,"rrrr")
     response.successResponse(res, token, "Login Successful");
 }
 module.exports = { test, createUser,loginUser };
