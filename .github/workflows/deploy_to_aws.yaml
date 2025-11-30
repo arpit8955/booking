@@ -3,6 +3,7 @@ name: CICD pipeline
 on:
 push:
 branches: [main]
+
 jobs:
 deploy_code:
 name: deploy_code
