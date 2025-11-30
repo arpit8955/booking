@@ -15,14 +15,14 @@ jobs:
       - name: setup nodejs version
         uses: actions/setup-node@v3
         with:
-        node-version: "18.17.1"
+          node-version: "18.17.1"
       - name: install packages
         run: npm install
 
       - name: deploy to aws ec2
         uses: easingthemes/ssh-deploy@v2.1.5
         env:
-          SSH_PRIVATE_KEY: ${{ SSH_KEY }}
+          SSH_PRIVATE_KEY: ${{ secrets.SSH_KEY }}
           SOURCE: "."
           REMOTE_HOST: ec2-44-223-36-184.compute-1.amazonaws.com
           REMOTE_USER: "ubuntu"
