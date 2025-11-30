@@ -1,8 +1,8 @@
 name: CICD pipeline
 
 on:
-push:
-branches: [main]
+  push:
+    branches: [main]
 
 jobs:
 deploy_code:
