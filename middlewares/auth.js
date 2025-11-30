@@ -27,5 +27,5 @@ const isAuthorized = async (req, res, next) => {
             return response(res,"token is expired please try again")
         }
     }
-}
+} 
 module.exports = isAuthorized;
