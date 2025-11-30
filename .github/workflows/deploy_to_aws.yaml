@@ -27,3 +27,12 @@ jobs:
           REMOTE_HOST: ec2-44-223-36-184.compute-1.amazonaws.com
           REMOTE_USER: "ubuntu"
           TARGET: "/var/www/booking"
+
+      - name: restart server
+        uses: appleboy/ssh-action@master
+        with:
+          host: "ec2-44-223-36-184.compute-1.amazonaws.com"
+          username: "ubuntu"
+          key: ${{ secrets.SSH_KEY }}
+          port: 22
+          script: pm2 restart all
