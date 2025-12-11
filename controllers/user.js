@@ -4,7 +4,7 @@ const bcrypt = require('bcryptjs');
 const jwtTokenDB = require('../models/jwtToken');
 const generateToken = require('../utils/jwt')
 const test = async (req, res) => {
-   response.successResponse(res,"","working fine from server from automation")
+   response.successResponse(res,"","working fine from server from automation new")
 }
 const createUser = async (req, res) => {
     const { name, email, password, role } = req.body;
